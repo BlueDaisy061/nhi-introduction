@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trang web cá nhân - Dương Nhi</title>
+
+<style>
+ .back-btn {position: absolute;top: 20px;left: 20px;padding: 10px 18px;font-size: 16px;background: linear-gradient(135deg, #ff9a9e, #ff4d88);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(255, 77, 136, 0.4);
+  transition: all 0.3s ease;}
+body {font-family: Arial, sans-serif;margin:0;background:#fff0f5;color:#333;}
+header {position:relative;text-align:center;height:300px;}
+header img {width:100%;height:100%;object-fit:cover;filter:brightness(70%);} 
+header h1 {position:absolute;top:40%;left:50%;transform:translate(-50%,-50%);color:#fff;font-size:36px;}
+header h2 {position:absolute;top:60%;left:50%;transform:translate(-50%,-50%);color:#fff;font-size:24px;font-style:italic;}
+
+nav {background:#ff85c1;text-align:center;}
+nav a {color:#fff;margin:0 15px;text-decoration:none;font-weight:bold;padding:15px;display:inline-block;cursor:pointer;}
+nav a:hover {color:#ffe4ec;}
+
+section {display:none;max-width:900px;margin:40px auto;background:#fff;border-radius:12px;padding:30px;box-shadow:0 4px 12px rgba(0,0,0,0.08);} 
+.active {display:block;}
+#about,
+#hobbies,
+#skills,
+#orientation {max-width:760px;}
+#home h2,
+#home p {text-align:center;}
+
+.flex-row {display:flex;gap:30px;flex-wrap:wrap;align-items:center;}
+.text {flex:1;}
+.text p {line-height:1.7;margin:0 0 14px;}
+.image {flex:1;text-align:center;}
+.image img {max-width:280px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.1);} 
+
+.skills-box {text-align:center;}
+.skills-box ul {list-style:none;padding:0;}
+.skills-box li {font-size:18px;margin:10px 0;}
+.skills-box li::before {content:"✔ ";color:#ff69b4;font-weight:bold;}
+
+.home-options {display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:20px;}
+.card {background:#fff;border-radius:12px;padding:20px;width:200px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,0.1);cursor:pointer;}
+.card:hover {transform:translateY(-5px);}
+
+@media (min-width: 992px) {
+  .home-options {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  .home-options .card {
+    flex: 1;
+    width: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  #about .flex-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  #about .image {
+    order: -1;
+  }
+  #about .text {
+    width: 100%;
+  }
+  nav {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+  }
+  nav a {
+    flex: 1 1 0;
+    white-space: nowrap;
+    margin: 0;
+    padding: 12px 6px;
+    text-align: center;
+  }
+  header h1 {
+    font-size: 26px;
+    top: 42%;
+    width: 90%;
+  }
+  header h2 {
+    font-size: 18px;
+    top: 56%;
+    width: 90%;
+  }
+  .home-options {
+    flex-direction: column;
+    align-items: center;
+  }
+  .home-options .card {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+footer {background:#ff85c1;color:#fff;padding:30px;text-align:center;}
+footer input, footer textarea {padding:10px;width:80%;max-width:400px;margin:5px 0;border-radius:8px;border:none;}
+footer button {background:#ff69b4;color:#fff;padding:10px 20px;border:none;border-radius:8px;margin-top:10px;}
+</style>
+
+<script>
+function showPage(id) {
+    let sections = document.querySelectorAll("section");
+    sections.forEach(sec => sec.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+}
+function goBack() {
+    let sections = document.querySelectorAll("section");
+    sections.forEach(sec => sec.classList.remove("active"));
+    document.getElementById("home").classList.add("active");
+}
+</script>
+
+</head>
+
+<body>
+
+
+<header>
+<button class="back-btn" onclick="goBack()">Trang chủ</button>
+<img src="/images/banner-pink.jpg">
+<h1>Nguyễn Trịnh Dương Nhi</h1>
+<h2>Welcome! 🌸</h2>
+</header>
+
+
+<nav>
+<a onclick="showPage('about')">Giới thiệu</a>
+<a onclick="showPage('hobbies')">Sở thích</a>
+<a onclick="showPage('skills')">Kỹ năng</a>
+<a onclick="showPage('orientation')">Định hướng</a>
+</nav>
+
+<section id="home" class="active">
+<h2>🌸 Trang chủ</h2>
+<p>Chọn nội dung bạn muốn xem:</p>
+
+<div class="home-options">
+<div class="card" onclick="showPage('about')">✨ Giới thiệu</div>
+<div class="card" onclick="showPage('hobbies')">🎶 Sở thích</div>
+<div class="card" onclick="showPage('skills')">💡 Kỹ năng</div>
+<div class="card" onclick="showPage('orientation')">🎯 Định hướng</div>
+</div>
+
+</section>
+
+<section id="about">
+<h2>✨ Giới thiệu</h2>
+<div class="flex-row">
+<div class="text">
+ <h2>Thông tin cơ bản</h2>
+    <p><b>Họ tên:</b> Nguyễn Trịnh Dương Nhi</p>
+    <p><b>Ngày sinh:</b> 10/10/2008</p>
+    <p><b>Giới tính:</b> Nữ</p>
+    <p><b>Gia đình:</b> 5 thành viên</p>
+    <p><b>Trường/Lớp:</b> THPT Trần Quý Cáp - Lớp 12A3</p>
+    <p><b>Quốc tịch:</b> Việt Nam</p>
+    <p><b>Quê quán:</b> Phường Đông Ninh Hòa, Khánh Hòa</p>
+    <h2>Tính cách & điểm mạnh/yếu</h2>
+    <p><b>Điểm mạnh:</b> Tinh thần trách nhiệm, ham học hỏi, biết lắng nghe và thấu cảm</p>
+    <p><b>Điểm cần cải thiện:</b> Nhạy cảm quá mức, học cách chấp nhận và buông bỏ</p>
+</div>
+<div class="image">
+<img src="/images/avatar.jpeg">
+</div>
+</div>
+</section>
+
+<section id="hobbies">
+<h2>🎶 Sở thích</h2>
+<div class="flex-row">
+<div class="text">
+<h2>Sở thích cá nhân</h2>
+    <ul>
+        <li>Nghe nhạc, thư giãn với các bản nhạc yêu thích</li>
+        <li>Đi dạo và thưởng thức các món ăn ngon</li>
+        <li>Màu yêu thích: Hồng pastel</li>
+        <li>Bài hát yêu thích: <a href="https://youtu.be/K06tUOb35DU?si=rgsTnkWfgClVqz5e" target="_blank">A little dream of me - Thảo Tâm ft. Công Dương</a></li>
+        <li>Cuốn sách yêu thích: <i>To Kill a Mockingbird</i> (Harper Lee), <i>Tôi thấy hoa vàng trên cỏ xanh</i> (Nguyễn Nhật Ánh)</li>
+    </ul>
+</div>
+<div class="image">
+<img src="/images/hobby.jpeg">
+
+</div>
+</div>
+</section>
+
+<section id="skills">
+<h2>💡 Kỹ năng</h2>
+<div class="skills-box">
+<ul>
+<li>Teamwork: Khá</li>
+<li>Canva, PowerPoint: Cơ bản</li>
+<li>Pascal, Python: Khá</li>
+<li>Tiếng Anh: Cơ bản</li>
+</ul>
+</div>
+</section>
+
+<section id="orientation">
+<h2>🎯 Định hướng</h2>
+<div class="flex-row">
+<div class="text">
+<p><b>Ngành:</b> MIS, Công nghệ thông tin</p>
+<p><b>Trường:</b> UEL, UIT</p>
+<p><b>Mục tiêu:</b> Học tốt, thi đại học, phát triển bản thân</p>
+</div>
+<div class="image">
+<img src="/images/UEL.jpeg">
+</div>
+</div>
+</section>
+
+<footer>
+<h3>💌 Liên hệ</h3>
+<form id="contact-form" action="#" method="post">
+<textarea id="comment" name="comment" placeholder="Nhập bình luận..." required></textarea><br>
+<button type="submit">Gửi</button>
+</form>
+<p>📧 nguyentrinhduongnhi@gmail.com</p>
+<p>☎️ 0399843436</p>
+</footer>
+
+<script>
+const contactForm = document.getElementById("contact-form");
+const commentInput = document.getElementById("comment");
+
+contactForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  alert("Sent a message!");
+  commentInput.value = "";
+});
+</script>
+
+</body>
+</html>
