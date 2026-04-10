@@ -14,7 +14,8 @@
   z-index: 1000;
   box-shadow: 0 4px 10px rgba(255, 77, 136, 0.4);
   transition: all 0.3s ease;}
-body {font-family: Arial, sans-serif;margin:0;background:#fff0f5;color:#333;}
+body {font-family: Arial, sans-serif;margin:0;background:#fff0f5;color:#333;overflow-x:hidden;}
+img {max-width:100%;height:auto;vertical-align:middle;}
 header {position:relative;text-align:center;height:300px;}
 header img {width:100%;height:100%;object-fit:cover;filter:brightness(70%);} 
 header h1 {position:absolute;top:40%;left:50%;transform:translate(-50%,-50%);color:#fff;font-size:36px;}
@@ -24,7 +25,7 @@ nav {background:#ff85c1;text-align:center;}
 nav a {color:#fff;margin:0 15px;text-decoration:none;font-weight:bold;padding:15px;display:inline-block;cursor:pointer;}
 nav a:hover {color:#ffe4ec;}
 
-section {display:none;max-width:900px;margin:40px auto;background:#fff;border-radius:12px;padding:30px;box-shadow:0 4px 12px rgba(0,0,0,0.08);} 
+section {display:none;max-width:900px;margin:40px auto;background:#fff;border-radius:12px;padding:30px;box-shadow:0 4px 12px rgba(0,0,0,0.08);box-sizing:border-box;width:100%;min-width:0;} 
 .active {display:block;}
 #about,
 #hobbies,
@@ -44,8 +45,8 @@ section {display:none;max-width:900px;margin:40px auto;background:#fff;border-ra
 .skills-box li {font-size:18px;margin:10px 0;}
 .skills-box li::before {content:"✔ ";color:#ff69b4;font-weight:bold;}
 
-.home-options {display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:20px;}
-.card {background:#fff;border-radius:12px;padding:20px;width:200px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,0.1);cursor:pointer;}
+.home-options {display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:20px;width:100%;box-sizing:border-box;}
+.card {background:#fff;border-radius:12px;padding:20px;width:200px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,0.1);cursor:pointer;box-sizing:border-box;}
 .card:hover {transform:translateY(-5px);}
 
 @media (min-width: 992px) {
@@ -70,17 +71,29 @@ section {display:none;max-width:900px;margin:40px auto;background:#fff;border-ra
   #about .text {
     width: 100%;
   }
+  #hobbies .flex-row,
+  #orientation .flex-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  #hobbies .text,
+  #orientation .text {
+    min-width: 0;
+  }
   nav {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    text-align: center;
   }
   nav a {
-    flex: 1 1 0;
-    white-space: nowrap;
     margin: 0;
-    padding: 12px 6px;
+    padding: 12px 8px;
     text-align: center;
+    font-size: 14px;
+    box-sizing: border-box;
+    min-width: 0;
   }
   header h1 {
     font-size: 26px;
@@ -94,11 +107,22 @@ section {display:none;max-width:900px;margin:40px auto;background:#fff;border-ra
   }
   .home-options {
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
+    gap: 16px;
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
+    min-width: 0;
   }
   .home-options .card {
     width: 100%;
-    max-width: 320px;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    min-width: 0;
+  }
+  section {
+    padding: 20px 16px;
   }
 }
 
